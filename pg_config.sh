@@ -1,12 +1,17 @@
-apt-get -qqy update
-apt-get -qqy upgrade
-apt-get -qqy install postgresql python-psycopg2
-apt-get -qqy install python-sqlalchemy
-apt-get -qqy install python-pip
-pip install --upgrade pip
-pip install werkzeug==0.8.3
-pip install flask==0.9
-pip install Flask-Login==0.1.3
-pip install oauth2client
-pip install requests
-pip install httplib2
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install postgresql python-psycopg2
+sudo apt-get install python-sqlalchemy
+sudo apt-get install python-pip
+
+sudo apt-get install python3-setuptools
+sudo easy_install3 pip
+sudo easy_install3 sqlalchemy
+
+sudo pip3 install --upgrade pip
+sudo pip3 install werkzeug
+sudo pip3 install flask
+sudo pip3 install Flask-Login
+sudo pip3 install oauth2client
+sudo pip3 install requests
+sudo pip3 install httplib2
