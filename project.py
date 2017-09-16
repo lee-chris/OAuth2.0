@@ -89,6 +89,10 @@ def gconnect():
     stored_access_token = login_session.get('access_token')
     stored_gplus_id = login_session.get('gplus_id')
     if stored_access_token is not None and gplus_id == stored_gplus_id:
+        
+        # replace existing access token with the most recent oauth token
+        login_session['access_token'] = credentials.access_token
+        
         response = make_response(json.dumps('Current user is already connected.'),
                                  200)
         response.headers['Content-Type'] = 'application/json'
@@ -111,6 +115,7 @@ def gconnect():
     
     # Create user in db (if necessary)
     if (getUserID(login_session['email']) == None):
+        print("creating new User entry")
         createUser(login_session)
 
     output = ''
