@@ -114,9 +114,13 @@ def gconnect():
     login_session['email'] = data['email']
     
     # Create user in db (if necessary)
-    if (getUserID(login_session['email']) == None):
+    user_id = getUserID(login_session['email'])
+    if (user_id == None):
         print("creating new User entry")
-        createUser(login_session)
+        user_id = createUser(login_session)
+    
+    login_session['user_id'] = user_id
+    
 
     output = ''
     output += '<h1>Welcome, '
